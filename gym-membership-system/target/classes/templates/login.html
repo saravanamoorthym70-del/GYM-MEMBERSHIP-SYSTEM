@@ -11,7 +11,6 @@
     <div class="login-container">
         <div class="login-card card p-4 text-center">
             <h2 class="mb-2 font-weight-bold">GYM MEMBERSHIP SYSTEM</h2>
-            <h5 class="text-muted mb-4">Software Engineering SAT II Assessment</h5>
             
             <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
             <div th:if="${successMessage}" class="alert alert-success" th:text="${successMessage}"></div>
@@ -33,10 +32,6 @@
                     <input type="hidden" name="userId" value="A001">
                     <button type="submit" class="btn btn-danger w-100">Administrator</button>
                 </form>
-            </div>
-
-            <div class="mt-4 text-muted small">
-                Sri Eshwar College of Engineering
             </div>
         </div>
     </div>
