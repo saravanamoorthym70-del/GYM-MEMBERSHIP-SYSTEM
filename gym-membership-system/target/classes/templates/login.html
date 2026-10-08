@@ -5,36 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gym Membership System - Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
-<body class="bg-light">
+<body>
     <div class="login-container">
-        <div class="login-card card p-4 text-center">
-            <h2 class="mb-2 font-weight-bold">GYM MEMBERSHIP SYSTEM</h2>
+        <div class="login-card card p-4 p-md-5 text-center">
+            <div class="login-header-icon mx-auto">
+                <i class="bi bi-lightning-charge-fill"></i>
+            </div>
             
-            <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
-            <div th:if="${successMessage}" class="alert alert-success" th:text="${successMessage}"></div>
+            <h2 class="fw-bold mb-1" style="color: #1e3a8a; letter-spacing: -0.02em;">GYM MEMBERSHIP SYSTEM</h2>
+            
+            <div th:if="${errorMessage}" class="alert alert-danger py-2 d-flex align-items-center justify-content-center gap-2" role="alert">
+                <i class="bi bi-exclamation-circle-fill"></i>
+                <span th:text="${errorMessage}"></span>
+            </div>
+            <div th:if="${successMessage}" class="alert alert-success py-2 d-flex align-items-center justify-content-center gap-2" role="alert">
+                <i class="bi bi-check-circle-fill"></i>
+                <span th:text="${successMessage}"></span>
+            </div>
 
-            <p class="mb-3 fw-bold">Select User to Login</p>
+            <div class="p-3 rounded-4 mb-4" style="background: #f0f9ff; border: 1px dashed #7dd3fc;">
+                <span class="fw-bold text-primary small text-uppercase" style="letter-spacing: 0.05em;">Select a Synthetic Account to Sign In</span>
+            </div>
 
             <div class="d-grid gap-3">
                 <form th:action="@{/login}" method="post">
                     <input type="hidden" name="userId" value="U001">
-                    <button type="submit" class="btn btn-primary w-100">Arun Kumar (User)</button>
+                    <button type="submit" class="btn role-btn-user1 w-100 d-flex align-items-center justify-content-between">
+                        <span><i class="bi bi-person-fill me-2"></i> Arun Kumar</span>
+                        <span class="badge bg-white text-primary rounded-pill px-2 py-1 small">USER (U001)</span>
+                    </button>
                 </form>
 
                 <form th:action="@{/login}" method="post">
                     <input type="hidden" name="userId" value="U002">
-                    <button type="submit" class="btn btn-primary w-100">Bala Kumar (User)</button>
+                    <button type="submit" class="btn role-btn-user2 w-100 d-flex align-items-center justify-content-between">
+                        <span><i class="bi bi-person-fill me-2"></i> Bala Kumar</span>
+                        <span class="badge bg-white text-teal rounded-pill px-2 py-1 small" style="color: #0f766e;">USER (U002)</span>
+                    </button>
                 </form>
 
                 <form th:action="@{/login}" method="post">
                     <input type="hidden" name="userId" value="A001">
-                    <button type="submit" class="btn btn-danger w-100">Administrator</button>
+                    <button type="submit" class="btn role-btn-admin w-100 d-flex align-items-center justify-content-between">
+                        <span><i class="bi bi-shield-lock-fill me-2"></i> System Administrator</span>
+                        <span class="badge bg-white text-purple rounded-pill px-2 py-1 small" style="color: #6d28d9;">ADMIN (A001)</span>
+                    </button>
                 </form>
+            </div>
+
+            <div class="mt-4 pt-3 border-top text-muted small">
+                <i class="bi bi-info-circle me-1"></i> Simulation mode &bull; No password authentication required
             </div>
         </div>
     </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
